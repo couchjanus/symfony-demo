@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\MyClass::index
+
+dev:
+    path: /dev
+    controller: App\Controller\MyClass1::hell
