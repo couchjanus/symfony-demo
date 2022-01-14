@@ -1,20 +1,19 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
+import Vue from 'vue';
+import router from '@/router';
+import BootstrapIcon from '@dvuckovic/vue-bootstrap-icons';
+Vue.component('BootstrapIcon', BootstrapIcon);
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.scss';
+library.add(faUserSecret)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-// start the Stimulus application
-import './bootstrap';
+import App from '@/App.vue';
 
+window.axios = require('axios');
 
-// import Vue from 'vue';
-//
-// const app = new Vue({
-//     el: '#app',
-//     template: '<h1>Hello Vue! Is this cooler?</h1>',
-// });
+new Vue({
+    router,
+    render: h => h(App),
+}).$mount('#app');
