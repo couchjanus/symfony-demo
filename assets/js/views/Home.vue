@@ -1,16 +1,20 @@
 <template>
 <div>
-  <h1>Home Page</h1>
+  <header-section title="Home page" lead="Home page  page Home page H pomeage" :breadcrumbs="[]"></header-section>
+
   <hello-vue message="Welcome to my Site"></hello-vue>
 </div>
 </template>
 
 <script>
 import HelloVue from "../components/HelloVue";
+import {HeaderSection} from '@/components/layouts';
+
 export default {
   name: "Home",
   components:{
-    HelloVue
+    HelloVue,
+    HeaderSection
   }
 }
 </script>

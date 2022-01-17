@@ -1,13 +1,17 @@
 <template>
 
   <div>
-    <h1>Contact Page</h1>
+    <header-section title="Contact page" lead="Contact page Contact page Contact page Contact page" :breadcrumbs="[{url:'contact', text:'Contact Us'}]"></header-section>
   </div>
 </template>
 
 <script>
+import {HeaderSection} from '@/components/layouts';
 export default {
-  name: "Contact"
+  name: "Contact",
+  components: {
+    HeaderSection,
+  }
 }
 </script>
 
