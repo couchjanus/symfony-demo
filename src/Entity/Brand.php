@@ -2,15 +2,30 @@
 
 namespace App\Entity;
 
+
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BrandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BrandRepository::class)
  * @ORM\Table (name="brand")
  */
+#[ApiResource(
+    collectionOperations: [
+        'get' => [
+            'method' => 'get'
+        ],
+    ],
+    itemOperations: [
+        'get' => [
+            'method' => 'get',
+        ],
+    ],
+)]
 class Brand
 {
     /**
@@ -22,6 +37,7 @@ class Brand
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"product"})
      */
     private $name;
 
