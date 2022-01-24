@@ -38,6 +38,8 @@
         "axios": "^0.21.1",
         "bootstrap": "^5.1.0",
         "node-sass": "^6.0.1",
-        "vue-router": "^3.5.2"
+        "vue-router": "^3.5.2",
+        "vuex": "^3.6.2",
+        "watch": "^1.0.2"
     }
 }
