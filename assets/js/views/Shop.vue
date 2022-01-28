@@ -24,7 +24,10 @@ export default {
     HeaderSection,
     ProductList,
     SideBar
-  }
+  },
+  created () {
+    this.$store.dispatch('products/getProducts');
+  },
 }
 </script>
 
