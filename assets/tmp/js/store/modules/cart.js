@@ -16,24 +16,27 @@ const mutations = {
     }
 };
 
+
 const actions = {
 
     [CartAction.ADD_PRODUCT_TO_CART]: (context, {product, quantity}) => {
         const cartItems = CartService.addItem(product, quantity);
         context.commit(CartAction.SET_CART_ITEMS, cartItems);
     },
+
     [CartAction.REMOVE_FROM_CART]: ({commit}, product) => {
         const cartItems = CartService.removeItem(product);
         commit(CartAction.SET_CART_ITEMS, cartItems);
     },
-
     [CartAction.UPDATE_CART_ITEM_QUANTITY](context, {cartItem, quantity}) {
         context.dispatch(CartAction.ADD_PRODUCT_TO_CART, {product: cartItem, quantity: parseInt(quantity)})
     },
+
     'CLEAR_CART'(context) {
         CartService.emptyCart();
         context.commit(CartAction.CLEAR_CART);
     }
+
 };
 
 const getters = {
@@ -53,6 +56,8 @@ const getters = {
             return total
         }, 0);
     },
+
+
 };
 
 export const cart = {
@@ -62,4 +67,3 @@ export const cart = {
     actions,
     getters
 };
-
