@@ -47,7 +47,7 @@
 
 
           <li class="nav-item mx-2 mx-lg-0 px-lg-0">
-            <router-link to="/customer-auth" class="nav-link">
+            <router-link to="/login" class="nav-link">
               <svg class="svg-icon">
                 <use xlink:href="#user"> </use>
               </svg>

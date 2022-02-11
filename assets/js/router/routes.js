@@ -48,7 +48,7 @@ const routes = [
         }
     },
     {
-        path: '/customer-auth',
+        path: '/login',
         name: 'login',
         component: () => import(
             /* webpackChunkName: "auth" */
