@@ -50,5 +50,8 @@ security:
     access_control:
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
         - { path: ^/api/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/products, roles: PUBLIC_ACCESS }
+        - { path: ^/api/brands, roles: PUBLIC_ACCESS }
+        - { path: ^/api/orders, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/api/profile, roles: IS_AUTHENTICATED_FULLY }

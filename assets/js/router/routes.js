@@ -81,6 +81,17 @@ const routes = [
         }
     },
     {
+        path: '/review',
+        name: 'review',
+        component: () => import(
+            /* webpackChunkName: "checkout" */
+            "@/views/Review.vue"
+            ),
+        meta: {
+            isAuthenticated: true,
+        }
+    },
+    {
         path: '/register',
         component: () => import(
             /* webpackChunkName: "auth" */

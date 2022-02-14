@@ -73,16 +73,15 @@ export const AuthAction = {
 //     }
 // };
 
-// export const OrderAction = {
-//     remote: {
-//         FETCH_ALL: 'FETCH_ALL',
-//         MAKE_ORDER_REUSING_ADDRESS: 'MAKE_ORDER_REUSING_ADDRESS',
-//         MAKE_ORDER_WITH_NEW_ADDRESS: 'MAKE_ORDER_WITH_NEW_ADDRESS'
-//     },
-//     local: {
-//         SET_ORDERS: 'SET_ORDERS',
-//     }
-// };
+export const OrderAction = {
+    remote: {
+        FETCH_ALL: 'FETCH_ALL',
+        MAKE_ORDER: 'MAKE_ORDER'
+    },
+    local: {
+        SET_ORDERS: 'SET_ORDERS',
+    }
+};
 
 export const CartAction = {
     ADD_PRODUCT_TO_CART: 'ADD_PRODUCT_TO_CART',

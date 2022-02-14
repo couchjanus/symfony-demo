@@ -9,7 +9,9 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(config => {
-    config.headers.authorization = `Bearer ${JSON.parse(sessionStorage.getItem('token'))}`
+    if(sessionStorage.getItem('token')) {
+        config.headers.authorization = `Bearer ${JSON.parse(sessionStorage.getItem('token'))}`
+    }
     return config;
 }, function (error){
     return Promise.reject(error);
