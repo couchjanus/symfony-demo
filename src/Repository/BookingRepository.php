@@ -19,6 +19,31 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
+    /**
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function create($data): Booking
+    {
+        $order = new Booking();
+
+        $order->setCustomer($data->customer);
+        $order->setShippingPrice($data->shipping_price);
+        $order->setShippingMethod($data->shipping_method);
+        $order->setShippingCity($data->shipping_city);
+        $order->setShippingState($data->shipping_state);
+        $order->setShippingStreet($data->shipping_street);
+        $order->setFirstName($data->first_name);
+        $order->setLastName($data->last_name);
+        $order->setZipCode($data->zip_code);
+        $order->setPhoneNumber($data->phone_number);
+        $order->setTotalPrice(number_format($data->total_price, 2, '.', ''));
+
+        $this->_em->persist($order);
+        $this->_em->flush();
+        return $order;
+    }
+
     // /**
     //  * @return Booking[] Returns an array of Booking objects
     //  */

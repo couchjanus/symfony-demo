@@ -4,6 +4,8 @@ import {CartAction} from "@/store/types.actions";
 
 const state = {
     all: [],
+    shipping: 0,
+    tax: 20
 };
 
 const mutations = {
@@ -13,6 +15,9 @@ const mutations = {
 
     CLEAR_CART: (state) => {
         state.all = [];
+    },
+    SET_CART_SHIPPING(state, price){
+        state.shipping = price
     }
 };
 
@@ -33,7 +38,10 @@ const actions = {
     'CLEAR_CART'(context) {
         CartService.emptyCart();
         context.commit(CartAction.CLEAR_CART);
-    }
+    },
+    [CartAction.SET_CART_SHIPPING](context, price) {
+        context.commit(CartAction.SET_CART_SHIPPING, price)
+    },
 };
 
 const getters = {

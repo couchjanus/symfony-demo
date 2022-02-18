@@ -15,9 +15,9 @@ const mutations = {
 
 const actions = {
 
-    [OrderAction.remote.MAKE_ORDER]: (context, {cart_items, address}) => {
+    [OrderAction.remote.MAKE_ORDER]: (context, {cart_items, address, order_info}) => {
         return new Promise(resolve => {
-            return OrdersService.checkout(cart_items, address)
+            return OrdersService.checkout(cart_items, address, order_info)
                 .then(response => {
                     if(response.data.success){
                         context.dispatch('cart/CLEAR_CART', false, {root:true});

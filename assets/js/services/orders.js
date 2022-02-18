@@ -1,7 +1,7 @@
 export const OrdersService = {
-    checkout(cartItems, address){
+    checkout(cart_items, address, order_info){
         return axios.post('/orders', {
-            ...address, cart_items: cartItems
+            ...address, ...order_info, cart_items: cart_items
         });
     }
 }

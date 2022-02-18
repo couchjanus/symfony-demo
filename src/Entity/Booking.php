@@ -44,9 +44,56 @@ class Booking
      */
     private $items;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $shipping_street;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $shipping_city;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $shipping_state;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $zip_code;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phone_number;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $updated_at;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
+        $this->updated_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -128,6 +175,114 @@ class Booking
                 $item->setBooking(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->first_name;
+    }
+
+    public function setFirstName(?string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->last_name;
+    }
+
+    public function setLastName(?string $last_name): self
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function getShippingStreet(): ?string
+    {
+        return $this->shipping_street;
+    }
+
+    public function setShippingStreet(?string $shipping_street): self
+    {
+        $this->shipping_street = $shipping_street;
+
+        return $this;
+    }
+
+    public function getShippingCity(): ?string
+    {
+        return $this->shipping_city;
+    }
+
+    public function setShippingCity(?string $shipping_city): self
+    {
+        $this->shipping_city = $shipping_city;
+
+        return $this;
+    }
+
+    public function getShippingState(): ?string
+    {
+        return $this->shipping_state;
+    }
+
+    public function setShippingState(?string $shipping_state): self
+    {
+        $this->shipping_state = $shipping_state;
+
+        return $this;
+    }
+
+    public function getZipCode(): ?string
+    {
+        return $this->zip_code;
+    }
+
+    public function setZipCode(?string $zip_code): self
+    {
+        $this->zip_code = $zip_code;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phone_number;
+    }
+
+    public function setPhoneNumber(string $phone_number): self
+    {
+        $this->phone_number = $phone_number;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

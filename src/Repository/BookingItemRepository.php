@@ -19,6 +19,24 @@ class BookingItemRepository extends ServiceEntityRepository
         parent::__construct($registry, BookingItem::class);
     }
 
+
+    /**
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function create($data)
+    {
+        $item = new BookingItem();
+        $item->setQuantity($data->quantity);
+        $item->setUnitPrice($data->price);
+        $item->setProduct($data->product);
+        $item->setBooking($data->order);
+
+        $this->_em->persist($item);
+        $this->_em->flush();
+
+    }
+
     // /**
     //  * @return BookingItem[] Returns an array of BookingItem objects
     //  */

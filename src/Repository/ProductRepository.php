@@ -47,4 +47,16 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function findOneById($value): ?Product
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
 }
