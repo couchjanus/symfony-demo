@@ -44,7 +44,7 @@ class OrderController extends AbstractController
 
             $data = new \stdClass();
 
-            $data->oder = $order;
+            $data->order = $order;
             $data->price = $price;
             $data->quantity = $quantity;
             $data->product = $product;
