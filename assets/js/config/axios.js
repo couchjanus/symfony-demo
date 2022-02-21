@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {config} from "@fortawesome/fontawesome-svg-core";
+
 
 const instance = axios.create({
     baseURL: 'http://127.0.0.1/api',

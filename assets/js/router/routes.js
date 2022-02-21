@@ -70,6 +70,17 @@ const routes = [
         }
     },
     {
+        path: '/orders',
+        name: 'orders',
+        component: () => import(
+            /* webpackChunkName: "profile" */
+            "@/views/Orders.vue"
+            ),
+        meta: {
+            isAuthenticated: true,
+        }
+    },
+    {
         path: '/checkout',
         name: 'checkout',
         component: () => import(

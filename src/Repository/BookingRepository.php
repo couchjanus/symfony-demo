@@ -60,7 +60,18 @@ class BookingRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    public function findOrdersByCustomer($value)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.customer = :val')
+            ->setParameter('val', $value)
+            ->orderBy('b.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+//
     /*
     public function findOneBySomeField($value): ?Booking
     {

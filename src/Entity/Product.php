@@ -38,6 +38,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"products", "product"})
+     * @Groups({"show_order"})
      */
     private $name;
 
@@ -79,6 +80,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"products", "product"})
+     * @Groups({"show_order"})
      */
     private $cover;
 

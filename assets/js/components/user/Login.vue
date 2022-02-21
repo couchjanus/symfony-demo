@@ -4,7 +4,7 @@
       <h5 class="mb-0">Login</h5>
     </div>
     <div class="p-4">
-      <p class="lead">Already our customer?</p>
+      <p class="lead">Not a customer? - <router-link to="/register">Sign up</router-link> please</p>
       <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
       <hr class="border-bottom border-gray-6">
       <form @submit.prevent="submit">

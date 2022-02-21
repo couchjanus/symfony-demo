@@ -54,7 +54,20 @@ class OrderController extends AbstractController
         }
 
         return new JsonResponse([
-            'success' => $this->serializer->serialize('ok', 'json')
+            'success' => 'ok'
+//            'success' => $this->serializer->serialize('ok', 'json')
+        ], 200);
+    }
+
+    #[Route('/fetch-orders')]
+    public function fetchOrders():JsonResponse
+    {
+        $customer = $this->security->getUser();
+        $orders = $this->bookingRepository->findOrdersByCustomer($customer);
+
+        return new JsonResponse([
+            'success' => 'OK',
+            'orders' => $this->serializer->serialize($orders, 'json', ['groups' => 'list_order'])
         ], 200);
     }
 }

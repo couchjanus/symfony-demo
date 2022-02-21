@@ -6,6 +6,7 @@ use App\Repository\BookingRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
@@ -16,71 +17,85 @@ class Booking
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"show_order","list_order"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Groups({"show_order","list_order"})
      */
     private $total_price;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Groups({"show_order"})
      */
     private $shipping_price;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"show_order"})
      */
     private $shipping_method;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="booking")
+     * @Groups({"show_order","list_order"})
      */
     private $customer;
 
     /**
      * @ORM\OneToMany(targetEntity=BookingItem::class, mappedBy="booking")
+     * @Groups({"show_order"})
      */
     private $items;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $first_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $last_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $shipping_street;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $shipping_city;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $shipping_state;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"show_order"})
      */
     private $zip_code;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"show_order"})
      */
     private $phone_number;
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Groups({"show_order","list_order"})
      */
     private $created_at;
 

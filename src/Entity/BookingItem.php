@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BookingItemRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BookingItemRepository::class)
@@ -14,21 +15,25 @@ class BookingItem
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"show_order"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"show_order"})
      */
     private $quantity;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Groups({"show_order"})
      */
     private $unit_price;
 
     /**
      * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="bookingItems")
+     * @Groups({"show_order"})
      */
     private $product;
 

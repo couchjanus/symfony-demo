@@ -3,5 +3,8 @@ export const OrdersService = {
         return axios.post('/orders', {
             ...address, ...order_info, cart_items: cart_items
         });
+    },
+    fetchAll() {
+        return axios.get('/fetch-orders')
     }
 }
